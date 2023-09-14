@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react';
 // colors from palette: https://flatuicolors.com/palette/defo
 // to demonstrate there can be also color a set
 // 💡 we can also create colors using Record utility type but need to specify all keys
@@ -35,8 +36,8 @@ type Props = {
   bgColor?: ColorType;
   color?: ColorType;
   // onClick: () => void // ⛔️ avoid using void when unecessary
-  onClick?: MouseEventHandler<HTMLButtonElement>; // ✅ better
-  className?: string;
+  // onClick?: MouseEventHandler<HTMLButtonElement>; // ✅ better
+  // className?: string;
 };
 
 export const Button = ({
@@ -45,7 +46,7 @@ export const Button = ({
   color,
   onClick,
   className,
-}: Props) => {
+}: ComponentProps<'button'> & Props) => {
   const _color = color ? colors[color] : '';
   const _bgColor = bgColor ? colors[bgColor] : '';
 
