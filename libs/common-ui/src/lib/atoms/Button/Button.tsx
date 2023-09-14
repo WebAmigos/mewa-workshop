@@ -1,6 +1,9 @@
 // colors from palette: https://flatuicolors.com/palette/defo
 // to demonstrate there can be also color a set
 // 💡 we can also create colors using Record utility type but need to specify all keys
+
+import { MouseEventHandler } from 'react';
+
 // const colors: Record<'turquise' | 'emerald', string> = {
 const colors = {
   turquise: '#1abc9c',
@@ -31,14 +34,25 @@ type Props = {
   label: string;
   bgColor?: ColorType;
   color?: ColorType;
+  // onClick: () => void // ⛔️ avoid using void when unecessary
+  onClick?: MouseEventHandler<HTMLButtonElement>; // ✅ better
+  className?: string;
 };
 
-export const Button = ({ label, bgColor, color }: Props) => {
+export const Button = ({
+  label,
+  bgColor,
+  color,
+  onClick,
+  className,
+}: Props) => {
   const _color = color ? colors[color] : '';
   const _bgColor = bgColor ? colors[bgColor] : '';
 
   return (
     <button
+      onClick={onClick}
+      className={className}
       style={{
         color: _color,
         backgroundColor: _bgColor,
