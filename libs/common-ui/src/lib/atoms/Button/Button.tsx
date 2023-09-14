@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps, FormEventHandler } from 'react';
 // colors from palette: https://flatuicolors.com/palette/defo
 // to demonstrate there can be also color a set
 // 💡 we can also create colors using Record utility type but need to specify all keys
@@ -38,6 +38,18 @@ type Props = {
   // onClick: () => void // ⛔️ avoid using void when unecessary
   // onClick?: MouseEventHandler<HTMLButtonElement>; // ✅ better
   // className?: string;
+};
+
+const UserForm = () => {
+  const handleClick: MouseEventHandler<HTMLButtonElement> = () => {
+    console.log('something');
+  };
+
+  return (
+    <div>
+      <Button label="Click me!" onClick={handleClick} />
+    </div>
+  );
 };
 
 export const Button = ({
