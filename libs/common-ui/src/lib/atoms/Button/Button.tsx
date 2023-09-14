@@ -47,6 +47,14 @@ export const Button = ({
   onClick,
   className,
 }: ComponentProps<'button'> & Props) => {
+  // Similar solutions are:
+  // 1️⃣ using defined Props which should contain all needed props
+  // }: Props) => {
+  // 2️⃣ using only onClick props from defined props together with our custom props
+  // Pick<ComponentProps<'button'>, 'onClick'> & Props) => {
+  // 3️⃣ using destructuring assignment
+  // export const Button = ({ label, bgColor, color, onClick }: Props) => {
+
   const _color = color ? colors[color] : '';
   const _bgColor = bgColor ? colors[bgColor] : '';
 
