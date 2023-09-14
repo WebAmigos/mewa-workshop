@@ -18,6 +18,8 @@ export const Default: Story = {
   },
 };
 
+export const _Button = () => <Button label="Click me" />;
+
 export const Primary: Story = {
   args: {
     label: 'Hello',
