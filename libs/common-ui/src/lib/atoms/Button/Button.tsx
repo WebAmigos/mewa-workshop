@@ -46,6 +46,7 @@ export const Button = ({
   color,
   onClick,
   className,
+  ...rest
 }: ComponentProps<'button'> & Props) => {
   // Similar solutions are:
   // 1️⃣ using defined Props which should contain all needed props
@@ -66,6 +67,7 @@ export const Button = ({
         color: _color,
         backgroundColor: _bgColor,
       }}
+      {...rest}
     >
       {label}
     </button>
