@@ -68,7 +68,7 @@
       }
     },
     "chromatic": {
-      "command": "npx nx build-storybook common-ui && npx chromatic --project-token=chpt_e7ace03070f323b -d=dist/storybook/common-ui"
+      "command": "npx nx build-storybook common-ui && npx chromatic --project-token=${TOKEN} -d=dist/storybook/common-ui"
     }
   }
 }
