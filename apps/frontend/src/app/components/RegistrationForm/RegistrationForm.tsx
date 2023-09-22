@@ -1,5 +1,5 @@
 import { FormEventHandler, useRef } from 'react';
-import { Button } from '@ems/common-ui';
+import { Button, Input } from '@ems/common-ui';
 
 import './RegistrationForm.module.css';
 
@@ -14,22 +14,19 @@ export const RegistrationForm = () => {
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
     // console.log({ firstName, lastName, age });
-    console.log({ firsName: firstNameRef.current?.value });
+    console.log({ firstName: firstNameRef.current?.value });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="firstName">First name: </label>
-        <input id="firstName" ref={firstNameRef} />
+        <Input label="First name: " ref={firstNameRef} />
       </div>
       <div>
-        <label htmlFor="lastName">Last name: </label>
-        <input id="lastName" ref={lastNameRef} />
+        <Input label="Last name: " ref={lastNameRef} />
       </div>
       <div>
-        <label htmlFor="age">Age: </label>
-        <input id="age" type="number" ref={ageRef} />
+        <Input type="number" label="Age: " ref={ageRef} />
       </div>
       <Button type="submit" label="Send" />
     </form>
