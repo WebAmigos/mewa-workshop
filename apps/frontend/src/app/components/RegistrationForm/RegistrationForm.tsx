@@ -4,7 +4,9 @@ import { Button, Input } from '@ems/common-ui';
 import './RegistrationForm.module.css';
 
 export const RegistrationForm = () => {
-  const [age, setAge] = useState(0);
+  const [age, setAge] = useState<number>(() => {
+    return parseInt(localStorage.getItem('userAge') || '', 10);
+  });
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
   let adult = false;
@@ -12,6 +14,7 @@ export const RegistrationForm = () => {
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
     console.log({ firstName: firstNameRef.current?.value });
+    localStorage.setItem('userAge', `${age}`);
   };
 
   useEffect(() => {
