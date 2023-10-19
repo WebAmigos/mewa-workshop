@@ -9,6 +9,11 @@ export const RegistrationForm = () => {
   });
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
+
+  if (lastNameRef) {
+    console.log();
+  }
+
   let adult = false;
 
   const handleSubmit: FormEventHandler = (event) => {
