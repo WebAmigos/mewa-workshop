@@ -1,7 +1,9 @@
+import { Header } from '@ems/common-ui';
+
 export const ContactPage = () => {
   return (
     <div>
-      <h1>Contact</h1>
+      <Header>Contact</Header>
       <p>Hello from routed page</p>
     </div>
   );

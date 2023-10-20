@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Label } from './Label';
 
 const meta = {
-  title: 'UI/Atoms/Label',
+  title: 'Atoms/Label',
   component: Label,
   tags: ['autodocs'],
 } satisfies Meta<typeof Label>;

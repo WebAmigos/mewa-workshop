@@ -18,6 +18,9 @@ export const Menu = () => {
         <li className="mx-2">
           <Link to={ROUTE.EMPLOYEES}>Employees</Link>
         </li>
+        <li className="mx-2">
+          <Link to={ROUTE.REGISTRATION}>Registration</Link>
+        </li>
       </ul>
     </nav>
   );
