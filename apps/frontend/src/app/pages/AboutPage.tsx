@@ -1,7 +1,9 @@
+import { Header } from '@ems/common-ui';
+
 export const AboutPage = () => {
   return (
     <div>
-      <h1>About</h1>
+      <Header>About</Header>
       <p>Hello from routed page</p>
     </div>
   );

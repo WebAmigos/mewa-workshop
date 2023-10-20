@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ViewPort } from './ViewPort';
 
 const meta = {
-  title: 'Components/ViewPort',
+  title: 'Molecules/ViewPort',
   component: ViewPort,
   tags: ['autodocs'],
 } satisfies Meta<typeof ViewPort>;
@@ -11,6 +11,4 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const _ViewPort: Story = {
-};
-
+export const _ViewPort: Story = {};
