@@ -41,18 +41,6 @@ type Props = {
   // className?: string;
 };
 
-const UserForm = () => {
-  const handleClick: MouseEventHandler<HTMLButtonElement> = () => {
-    console.log('something');
-  };
-
-  return (
-    <div>
-      <Button label="Click me!" onClick={handleClick} />
-    </div>
-  );
-};
-
 export const Button = ({
   label,
   bgColor,
