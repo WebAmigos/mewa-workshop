@@ -39,7 +39,8 @@
       "configurations": {
         "ci": {
           "ci": true,
-          "codeCoverage": true
+          "codeCoverage": true,
+          "watch": false
         }
       }
     },
