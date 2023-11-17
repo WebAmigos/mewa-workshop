@@ -4,7 +4,7 @@ import { ROUTE } from '../../../routes';
 
 export const Menu = () => {
   return (
-    <nav>
+    <nav className="mb-6">
       <ul className="flex list-none">
         <li className="mx-2">
           <Link to={ROUTE.HOME}>Home</Link>
