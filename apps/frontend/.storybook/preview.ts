@@ -1,7 +1,11 @@
 import type { Preview } from '@storybook/react';
 import { withThemeByClassName } from '@storybook/addon-styling';
+import { initialize, mswLoader } from 'msw-storybook-addon';
 
 import '../src/styles.css';
+
+// Initialize MSW
+initialize();
 
 const preview: Preview = {
   parameters: {
@@ -31,6 +35,9 @@ const preview: Preview = {
       defaultTheme: 'dark',
     }),
   ],
+
+  // Provide the MSW addon loader globally
+  loaders: [mswLoader],
 };
 
 export default preview;

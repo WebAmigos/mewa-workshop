@@ -9,6 +9,15 @@ import { RegistrationPage } from './pages/RegistrationPage';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { useState } from 'react';
 
+import { worker } from './mocks/browser';
+
+// Start the mocking conditionally.
+if (process.env.NODE_ENV === 'development') {
+  // const { worker } = require("./mocks/browser");
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  worker.start();
+}
+
 export function App() {
   const [user, setUser] = useState(true);
 

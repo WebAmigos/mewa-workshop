@@ -104,6 +104,9 @@
           "quiet": true
         }
       }
+    },
+    "msw-update": {
+      "command": "npx msw init apps/frontend/public --no-save"
     }
   },
   "tags": []
