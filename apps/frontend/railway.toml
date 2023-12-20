@@ -1,0 +1,11 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "npx nx run frontend:build:production"
+watchPatterns = ["/apps/frontend/**"]
+
+[deploy]
+numReplicas = 1
+startCommand = "npx nx run frontend:serve:production"
+sleepApplication = false
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
