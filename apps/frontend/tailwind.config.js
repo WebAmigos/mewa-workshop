@@ -1,6 +1,8 @@
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
 
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   darkMode: 'class',
   content: [
@@ -11,7 +13,20 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'wa-blue': '#184689',
+        'wa-blue-light': '#123156',
+        'wa-red': '#c0392b',
+        'wa-yellow': '#F1C410',
+        'wa-yellow-light': '#F4B743',
+      },
+    },
   },
   plugins: [],
 };
