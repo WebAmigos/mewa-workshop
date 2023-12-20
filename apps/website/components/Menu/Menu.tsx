@@ -10,18 +10,18 @@ export const Menu = () => {
           </Link>
         </li>
         <li className="mr-6">
-          <Link href="/employees" className="text-lg text-black">
-            Employees
-          </Link>
-        </li>
-        <li className="mr-6">
-          <Link href="/people" className="text-lg text-black">
-            People
+          <Link href="/job-offers" className="text-lg text-black">
+            Job offers
           </Link>
         </li>
         <li className="mr-6">
           <Link href="/reviews" className="text-lg text-black">
             Reviews
+          </Link>
+        </li>
+        <li className="mr-6">
+          <Link href="/contact" className="text-lg text-black">
+            Contact
           </Link>
         </li>
       </ul>
