@@ -36,7 +36,7 @@ export const RegistrationForm = () => {
         <div>
           <Input
             type="number"
-            label="Age: "
+            label="Age:: "
             onChange={(e) => setAge(parseInt(e.target.value, 10))}
           />
         </div>

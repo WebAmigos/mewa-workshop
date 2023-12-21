@@ -1,0 +1,11 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "npx nx run website:build:production"
+watchPatterns = ["/apps/website/**"]
+
+[deploy]
+numReplicas = 1
+startCommand = "npx nx run website:serve:production"
+sleepApplication = false
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
