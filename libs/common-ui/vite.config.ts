@@ -8,6 +8,7 @@ import * as path from 'path';
 export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/common-ui',
+  assetsInclude: ['/sb-preview/runtime.js'],
 
   plugins: [
     dts({

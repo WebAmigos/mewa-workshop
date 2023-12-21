@@ -23,9 +23,11 @@
     "pg": "^8.11.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.49.2",
     "react-router-dom": "^6.17.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
+    "tailwind-merge": "^2.2.0",
     "tslib": "^2.3.0",
     "typeorm": "^0.3.17",
     "uuid": "^9.0.1"
@@ -36,6 +38,7 @@
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
     "@nx/cypress": "17.2.6",
+    "@nx/eslint": "17.2.6",
     "@nx/eslint-plugin": "17.2.6",
     "@nx/jest": "17.2.6",
     "@nx/js": "17.2.6",
@@ -81,7 +84,7 @@
     "eslint-config-next": "13.4.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-cypress": "2.15.1",
-    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
@@ -103,7 +106,6 @@
     "vite": "5.0.10",
     "vite-plugin-dts": "~2.3.0",
     "vite-tsconfig-paths": "~4.2.0",
-    "vitest": "0.34.6",
-    "@nx/eslint": "17.2.6"
+    "vitest": "0.34.6"
   }
 }

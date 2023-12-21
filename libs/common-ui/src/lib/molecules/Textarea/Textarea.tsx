@@ -3,27 +3,27 @@ import {
   type ForwardedRef,
   type ComponentPropsWithRef,
 } from 'react';
-import { FieldError } from 'react-hook-form';
 
 import { classMerge } from '../../utils/cn';
+import { FieldError } from 'react-hook-form';
 import { Label } from '../../atoms';
 
 type Props = {
   label: string;
   error?: FieldError;
-} & ComponentPropsWithRef<'input'>;
+} & ComponentPropsWithRef<'textarea'>;
 
-export const Input = forwardRef(
+export const Textarea = forwardRef(
   (
     { label, error, className, ...rest }: Props,
-    ref: ForwardedRef<HTMLInputElement>
+    ref: ForwardedRef<HTMLTextAreaElement>
   ) => {
     // id is needed to provide accessibility and point which label is for which field
     const id = label.replace(' ', '-').toLocaleLowerCase();
     return (
       <div className="my-2">
         <Label id={id}>{label}</Label>
-        <input
+        <textarea
           id={id}
           ref={ref}
           className={classMerge(
