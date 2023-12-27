@@ -6,10 +6,11 @@ type Props = ComponentProps<'label'> & {
 
 export const Label = ({ id, children }: Props) => {
   return (
-    <label className="block" htmlFor={id}>
-      <span className="block text-sm font-medium text-slate-700">
-        {children}
-      </span>
+    <label
+      htmlFor={id}
+      className="block text-sm font-medium leading-6 text-gray-900"
+    >
+      {children}
     </label>
   );
 };

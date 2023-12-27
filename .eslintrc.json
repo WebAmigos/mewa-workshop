@@ -24,7 +24,29 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "import/order": [
+          "error",
+          { "newlines-between": "always",
+            "groups":
+            [
+              "external",
+              "builtin",
+              "internal",
+              "sibling",
+              "parent",
+              "index"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "@ems/common-ui/**",
+                "group": "builtin",
+                "position": "after"
+              }
+            ],
+          }
+        ]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

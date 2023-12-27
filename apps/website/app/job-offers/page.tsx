@@ -1,7 +1,9 @@
+import { Header } from '@ems/common-ui';
+
 export default function AboutPage() {
   return (
     <div>
-      <h1>Job offers</h1>
+      <Header>Job offers</Header>
       <p>All offers</p>
     </div>
   );

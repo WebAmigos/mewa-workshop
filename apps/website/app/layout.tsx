@@ -1,6 +1,8 @@
 import { Inter } from 'next/font/google';
+
 import { Menu } from '../components';
 import './styles.css';
+import { Footer } from '../components/Footer';
 
 export const metadata = {
   title: 'Welcome to website',
@@ -17,8 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <Menu />
-        <main className="container mx-auto">{children}</main>
+        <div className="flex flex-col h-screen">
+          <Menu />
+          <main className="container mx-auto px-4 pt-6">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
