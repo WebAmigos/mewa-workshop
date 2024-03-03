@@ -1,12 +1,7 @@
 import { format } from 'date-fns';
 import { notFound } from 'next/navigation';
-
-type Review = {
-  id: string;
-  content: string;
-  author: string;
-  created_at: string;
-};
+import { CreateReviewDto, Review } from './types';
+import { cache } from 'react';
 
 type AirtableReviewResponseDto = {
   records: {
@@ -28,6 +23,7 @@ export const fetchReviews = async () => {
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_API_TOKEN}`,
       },
+      // cache: 'force-cache'
     }
   );
   const data: AirtableReviewResponseDto = await response.json();
@@ -42,4 +38,18 @@ export const fetchReviews = async () => {
   });
 
   return reviews;
+};
+
+export const createReviewInAirtable = async (review: CreateReviewDto) => {
+  const response = await fetch(`${process.env.AIRTABLE_BASE_URL}/reviews`, {
+    headers: {
+      Authorization: `Bearer ${process.env.AIRTABLE_API_TOKEN}`,
+      'Content-type': 'application/json',
+    },
+    method: 'POST',
+    body: JSON.stringify({ records: [{ fields: review }] }),
+  });
+  const data = await response.json();
+
+  console.log({ data });
 };
