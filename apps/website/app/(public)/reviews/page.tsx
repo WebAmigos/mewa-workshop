@@ -8,10 +8,10 @@ export default async function ReviewsPage() {
   return (
     <div>
       <Header>Reviews</Header>
-      <Link href="/reviews/create" className="py-4 text-blue-500">
+      <Link href="/reviews/create" className="block py-4 text-blue-500">
         Create review
       </Link>
-      <p>All reviews</p>
+
       {/* <ReviewsList /> */}
       <ul>
         {reviews?.map((elem) => (

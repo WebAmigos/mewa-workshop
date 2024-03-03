@@ -3,28 +3,43 @@ import { redirect } from 'next/navigation';
 
 import { Button, Header, Input } from '@ems/common-ui';
 
-import { CreateReviewDto, Review } from '../types';
+import { CreateReviewDto, Review, createReviewSchema } from '../types';
 import { createReviewInAirtable } from '../services';
 
 const createReview = async (formData: FormData) => {
   'use server';
 
-  const review: CreateReviewDto = {
+  const rawReview: CreateReviewDto = {
     content: formData.get('content') as string,
     author: formData.get('author') as string,
   };
 
-  await createReviewInAirtable(review);
+  const result = createReviewSchema.safeParse(rawReview);
+  if (!result.success) {
+    console.log(result.error.issues);
 
-  // revalidatePath('/reviews');
-  redirect('/reviews');
+    return {
+      error: true,
+    };
+  } else {
+    await createReviewInAirtable(rawReview);
+
+    // revalidatePath('/reviews');
+    redirect('/reviews');
+  }
 };
 
 export default function CreateReview() {
+  const formAction = async (formData: FormData) => {
+    'use server';
+    const serverResult = await createReview(formData);
+    console.log({ serverResult });
+  };
+
   return (
     <div>
       <Header>Create review</Header>
-      <form action={createReview}>
+      <form action={formAction}>
         <Input label="Content" name="content" />
         <Input label="Author" name="author" />
         <Button label="Submit" type="submit" />
