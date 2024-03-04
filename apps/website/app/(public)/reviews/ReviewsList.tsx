@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { format } from 'date-fns';
 
 type Review = {
   id: string;
@@ -48,7 +49,7 @@ export const ReviewsList = () => {
             id: elem.id,
             content: elem.fields.content,
             author: elem.fields.author,
-            created_at: elem.fields.created_at,
+            created_at: format(elem.fields.created_at, 'dd.MM.yyyy HH:mm:ss'),
           });
         });
         setReviews(_reviews);
