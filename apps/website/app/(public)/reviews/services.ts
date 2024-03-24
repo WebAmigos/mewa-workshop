@@ -10,15 +10,19 @@ type Review = {
   created_at: string;
 };
 
+type AirtableFields = {
+  content: string;
+  author: string;
+  created_at: string;
+};
+
+type AirtableReview = {
+  id: string;
+  fields: AirtableFields;
+};
+
 type AirtableReviewResponseDto = {
-  records: {
-    id: string;
-    fields: {
-      content: string;
-      author: string;
-      created_at: string;
-    };
-  }[];
+  records: AirtableReview[];
 };
 
 export const fetchReviews = async () => {
@@ -70,4 +74,19 @@ export const createReviewInAirtable = async (review: CreateReviewDto) => {
   const data = await response.json();
 
   console.log('createReviewInAirtable', { data: data.records[0] });
+};
+
+export const fetchReview = async (publicId: string) => {
+  // noStore();
+  const response = await fetch(
+    `${process.env.AIRTABLE_BASE_URL}/reviews/${publicId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_TOKEN}`,
+      },
+    }
+  );
+  const data: AirtableReview = await response.json();
+
+  return data;
 };
