@@ -8,6 +8,7 @@
     "node": "20.x"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
     "@nestjs/event-emitter": "^2.0.2",
