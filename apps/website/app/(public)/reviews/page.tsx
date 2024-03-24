@@ -1,14 +1,12 @@
-import { Header } from '@ems/common-ui';
-import { ReviewsList } from './ReviewsList';
-import { fetchReviews } from './services';
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-export default async function ReviewsPage() {
-  // await new Promise((r) => setTimeout(r, 3000));
-  const reviews = await fetchReviews();
-  // notFound();
+import { Header } from '@ems/common-ui';
 
+import { ReviewsList } from './ReviewsListClient';
+import ReviewsCount from './components/ReviewsCount';
+import { Suspense } from 'react';
+
+export default async function ReviewsPage() {
   return (
     <div>
       <Header>Reviews</Header>
@@ -17,16 +15,13 @@ export default async function ReviewsPage() {
         Create review
       </Link>
 
-      {/* <ReviewsList /> */}
-      <ul>
-        {reviews?.map((elem) => (
-          <li key={elem.id}>
-            <div>{elem.content}</div>
-            <div className="font-light">{elem.author}</div>
-            <div className="mb-4 font-light">{elem.created_at}</div>
-          </li>
-        ))}
-      </ul>
+      <Suspense fallback={<p>Loading count...</p>}>
+        <ReviewsCount />
+      </Suspense>
+
+      <Suspense fallback={<p>Loading list...</p>}>
+        <ReviewsList />
+      </Suspense>
     </div>
   );
 }
