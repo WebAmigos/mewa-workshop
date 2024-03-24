@@ -8,16 +8,16 @@ import { createReview } from './actions';
 import { CreateForm } from './CreateForm';
 
 export default function CreateReview() {
-  const formAction = async (formData: FormData) => {
-    'use server';
-    const serverResult = await createReview(formData);
-    console.log({ serverResult });
-    if (serverResult.status === 'success') {
-      await createReviewInAirtable(serverResult.payload!);
-      revalidatePath('/reviews');
-      redirect('/reviews');
-    }
-  };
+  // const formAction = async (formData: FormData) => {
+  //   'use server';
+  //   const serverResult = await createReview(formData);
+  //   console.log({ serverResult });
+  //   if (serverResult.status === 'success') {
+  //     await createReviewInAirtable(serverResult.payload!);
+  //     revalidatePath('/reviews');
+  //     redirect('/reviews');
+  //   }
+  // };
 
   return (
     <div>
