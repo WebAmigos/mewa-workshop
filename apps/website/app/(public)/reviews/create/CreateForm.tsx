@@ -29,7 +29,7 @@ export const CreateForm = () => {
       setIsError(true);
     } else {
       startTransition(() => push('/reviews'));
-      startTransition(() => refresh());
+      // startTransition(() => refresh());
     }
   };
 
