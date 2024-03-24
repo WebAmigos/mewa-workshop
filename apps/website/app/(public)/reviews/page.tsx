@@ -1,9 +1,13 @@
 import { Header } from '@ems/common-ui';
 import { ReviewsList } from './ReviewsList';
 import { fetchReviews } from './services';
+import { notFound } from 'next/navigation';
 
 export default async function ReviewsPage() {
+  // await new Promise((r) => setTimeout(r, 3000));
   const reviews = await fetchReviews();
+  // notFound();
+
   return (
     <div>
       <Header>Reviews</Header>
