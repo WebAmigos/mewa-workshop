@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { Header } from '@ems/common-ui';
 
-import { ReviewsList } from './ReviewsListClient';
+import ReviewsList from './components/ReviewsList';
 import ReviewsCount from './components/ReviewsCount';
 import { Suspense } from 'react';
 
