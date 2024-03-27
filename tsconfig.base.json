@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ems/common-ui": ["libs/common-ui/src/index.ts"]
+      "@ems/common-ui": ["libs/common-ui/src/index.ts"],
+      "@ems/prisma-client": ["libs/prisma-client/src/index.ts"],
+      "@ems/prisma-schema": ["libs/prisma-schema/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
