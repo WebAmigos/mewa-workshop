@@ -1,7 +1,7 @@
 type Props = {
     type: string;
     name: string;
-    className:string;
+    className?:string;
     placeholder?: string;
   };
   

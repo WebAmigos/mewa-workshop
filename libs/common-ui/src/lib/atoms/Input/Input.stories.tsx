@@ -17,6 +17,7 @@ export const Default: Story = {
     type: 'text',
     name:'default',
     placeholder: 'Add text',
+    className:"rounded-md"
   },
 };
 
