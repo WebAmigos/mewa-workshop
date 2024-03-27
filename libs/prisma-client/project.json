@@ -1,0 +1,15 @@
+{
+  "name": "prisma-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/prisma-client/src",
+  "projectType": "library",
+  "targets": {
+    "seed": {
+      "command": "ts-node ./src/lib/seed.ts",
+      "options": {
+        "cwd": "libs/prisma-client/src/lib"
+      }
+    }
+  },
+  "tags": []
+}
