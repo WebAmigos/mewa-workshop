@@ -423,8 +423,8 @@ export function NxWelcome({ title }: { title: string }) {
               <span> Hello there, </span>
               Welcome {title} 👋
             </h1>
-            <span className="pt-3 pb-3">What is your name?</span>
-            <Input type='text' name='text' placeholder='Add your name'/>
+            <h2 className="mt-3 mb-3">What is your name?</h2>
+            <Input className="border rounded-md outline outline-offset-2 outline-blue-500" type='text' name='text' placeholder='Add your name'/>
           </div>
 
           <div id="hero" className="rounded">
