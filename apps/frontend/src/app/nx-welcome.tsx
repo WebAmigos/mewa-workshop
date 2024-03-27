@@ -1,3 +1,5 @@
+import { Input } from "@ems/common-ui";
+
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  This is a starter component and can be deleted.
@@ -421,6 +423,8 @@ export function NxWelcome({ title }: { title: string }) {
               <span> Hello there, </span>
               Welcome {title} 👋
             </h1>
+            <span className="pt-3 pb-3">What is your name?</span>
+            <Input type='text' name='text' placeholder='Add your name'/>
           </div>
 
           <div id="hero" className="rounded">

@@ -1,7 +1,7 @@
 type Props = {
     type: string;
     name: string;
-    placeholder: string;
+    placeholder?: string;
   };
   
   export const Input = ({ type, name, placeholder }: Props) => {
