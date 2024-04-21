@@ -20,8 +20,8 @@ export default async function ReviewPage({ params }: Props) {
 
   return (
     <div>
-      <Header>{review.fields.content}</Header>
-      <p>{review.fields.author}</p>
+      <Header>{review.content}</Header>
+      <p>{review.author}</p>
     </div>
   );
 }

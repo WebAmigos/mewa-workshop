@@ -1,0 +1,51 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: mewa-postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass123
+      POSTGRES_DB: mewa-workshop
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+  redis:
+    image: redis
+    container_name: mewa-redis
+    ports:
+      - 6379:6379
+    restart: always
+  # mongodb:
+  #   build:
+  #     context: ./mongodb_replica
+  #     args:
+  #       MONGO_VERSION: 6
+  #   environment:
+  #     MONGO_REPLICA_HOST: 127.0.0.1
+  #     MONGO_REPLICA_PORT: 27017
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: pass123
+  #     MONGO_INITDB_DATABASE: mewa
+  #     # Use "mongo" instead of "mongosh" before v5.0
+  #     MONGO_COMMAND: 'mongosh'
+  #   ports:
+  #     - '27017:27017'
+  #   restart: unless-stopped
+  #   healthcheck:
+  #     # Use "mongo" instead of "mongosh" before v5.0
+  #     test:
+  #       [
+  #         'CMD',
+  #         'mongosh',
+  #         'admin',
+  #         '--port',
+  #         '27017',
+  #         '--eval',
+  #         "db.adminCommand('ping').ok",
+  #       ]
+  #     interval: 5s
+  #     timeout: 2s
+  #     retries: 20
