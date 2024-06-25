@@ -4,12 +4,13 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Query,
 } from '@nestjs/common';
 import { ReviewsService } from './reviews.service';
-
-type ReviewDto = { id: number; content: string; rate: number };
+import { CreateReviewDto } from './dtos/create-review.dto';
+import { UpdateReviewDto } from './dtos/update-review.dto';
 
 @Controller('reviews') // http://localhost:3002/api/reviews
 export class ReviewsController {
@@ -33,7 +34,15 @@ export class ReviewsController {
   }
 
   @Post()
-  createReview(@Body() data: ReviewDto) {
-    return this.reviewsService.createReview(data);
+  createReview(@Body() createReviewDto: CreateReviewDto) {
+    return this.reviewsService.createReview(createReviewDto);
+  }
+
+  @Patch(':id')
+  updateReview(
+    @Param('id') id: string,
+    @Body() updateReviewDto: UpdateReviewDto
+  ) {
+    return this.reviewsService.updateReview(id, updateReviewDto);
   }
 }
