@@ -7,25 +7,27 @@ import {
   Patch,
   Post,
   Query,
+  UseFilters,
 } from '@nestjs/common';
 import { ReviewsService } from './reviews.service';
 import { CreateReviewDto } from './dtos/create-review.dto';
 import { UpdateReviewDto } from './dtos/update-review.dto';
+import { HttpExceptionFilter } from '../filters/http-exception-filter';
 
 @Controller('reviews') // http://localhost:3002/api/reviews
 export class ReviewsController {
   constructor(private readonly reviewsService: ReviewsService) {}
 
   @Get()
-  getReviews(@Query() query) {
+  async getReviews(@Query() query) {
     const { page, offset } = query;
-    return this.reviewsService.getReviews(page, offset);
+    return await this.reviewsService.getReviews(page, offset);
     // return this.reviewsService.getReviews();
   }
 
   @Get(':id')
-  getReview(@Param('id') id: number) {
-    return this.reviewsService.getReview(id);
+  async getReview(@Param('id') id: number) {
+    return await this.reviewsService.getReview(id);
   }
 
   @Delete(':id')
