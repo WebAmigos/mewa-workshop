@@ -9,7 +9,7 @@ const reviews: Review[] = [
 
 @Injectable()
 export class ReviewsService {
-  getReviews(): Review[] {
+  getReviews(page?: number, offset?: number): Review[] {
     return reviews;
   }
 

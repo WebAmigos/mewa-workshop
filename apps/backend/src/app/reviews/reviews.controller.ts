@@ -18,8 +18,8 @@ export class ReviewsController {
   @Get()
   getReviews(@Query() query) {
     const { page, offset } = query;
-    // return this.reviewsService.getReviews(page, offset);
-    return this.reviewsService.getReviews();
+    return this.reviewsService.getReviews(page, offset);
+    // return this.reviewsService.getReviews();
   }
 
   @Get(':id')
