@@ -11,7 +11,7 @@ import { AppModule } from './app/app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api'; // http://localhost:3000/api
-  app.useGlobalPipes(new ValidationPipe());
+  // app.useGlobalPipes(new ValidationPipe());
   app.setGlobalPrefix(globalPrefix);
   app.enableCors();
   const port = process.env.PORT || 3002;

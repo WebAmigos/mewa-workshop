@@ -1,6 +1,10 @@
-import { Injectable } from '@nestjs/common';
-
-type Review = { id: number; content: string; rate: number };
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import { Review } from './entities/review.entity';
 
 const reviews: Review[] = [
   { id: 1, content: 'Lorem ipsum', rate: 4 },
@@ -13,8 +17,14 @@ export class ReviewsService {
     return reviews;
   }
 
-  getReview(id: Review['id']): Review {
-    return reviews[0];
+  getReview(id: string): Review {
+    const review: Review = reviews.find((item) => item.id === +id);
+    if (!review) {
+      // throw new Error('Review not found');
+      // throw new HttpException('Review not found', HttpStatus.NOT_FOUND);
+      throw new NotFoundException('Review not found');
+    }
+    return review;
   }
 
   createReview(data: Review) {
@@ -22,7 +32,7 @@ export class ReviewsService {
     return data;
   }
 
-  deleteReview(id: Review['id']) {
+  deleteReview(id: string) {
     return null;
   }
 }
