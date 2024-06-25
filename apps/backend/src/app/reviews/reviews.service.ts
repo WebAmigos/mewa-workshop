@@ -28,8 +28,8 @@ export class ReviewsService {
   }
 
   async getReview(id: Review['id']): Promise<Review> {
-    const review: Review = reviews.find((item) => item.id === id);
-    const review: Review = await this.prisma.review.findFirstOrThrow({
+    // const review: Review = reviews.find((item) => item.id === id);
+    const review: Review = await this.prisma.review.findFirst({
       where: { id },
     });
     if (!review) {

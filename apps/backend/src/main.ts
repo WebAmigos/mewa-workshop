@@ -20,6 +20,7 @@ async function bootstrap() {
     })
   );
   app.setGlobalPrefix(globalPrefix);
+  app.useGlobalFilters(new HttpExceptionFilter());
   app.enableCors();
   const port = process.env.PORT || 3002;
   await app.listen(port);
