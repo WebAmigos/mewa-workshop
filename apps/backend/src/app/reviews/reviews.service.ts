@@ -19,8 +19,8 @@ export class ReviewsService {
     return reviews;
   }
 
-  getReview(id: string): Review {
-    const review: Review = reviews.find((item) => item.id === +id);
+  getReview(id: Review['id']): Review {
+    const review: Review = reviews.find((item) => item.id === id);
     if (!review) {
       // throw new Error('Review not found');
       // throw new HttpException('Review not found', HttpStatus.NOT_FOUND);
@@ -35,11 +35,11 @@ export class ReviewsService {
     return createReviewDto;
   }
 
-  updateReview(id: string, updateReviewDto: UpdateReviewDto) {
+  updateReview(id: Review['id'], updateReviewDto: UpdateReviewDto) {
     return updateReviewDto;
   }
 
-  deleteReview(id: string) {
+  deleteReview(id: Review['id']) {
     return null;
   }
 }
