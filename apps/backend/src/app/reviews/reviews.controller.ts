@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { ReviewsService } from './reviews.service';
 
 type ReviewDto = { id: number; content: string; rate: number };
@@ -8,7 +16,9 @@ export class ReviewsController {
   constructor(private readonly reviewsService: ReviewsService) {}
 
   @Get()
-  getReviews() {
+  getReviews(@Query() query) {
+    const { page, offset } = query;
+    // return this.reviewsService.getReviews(page, offset);
     return this.reviewsService.getReviews();
   }
 
