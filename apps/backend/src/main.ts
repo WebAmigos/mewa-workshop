@@ -8,6 +8,7 @@ import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
 import { HttpExceptionFilter } from './app/filters/http-exception-filter';
+import { ApiGuard } from './app/guards/api-guard';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -21,6 +22,7 @@ async function bootstrap() {
   );
   app.setGlobalPrefix(globalPrefix);
   app.useGlobalFilters(new HttpExceptionFilter());
+  app.useGlobalGuards(new ApiGuard());
   app.enableCors();
   const port = process.env.PORT || 3002;
   await app.listen(port);
