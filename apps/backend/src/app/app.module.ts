@@ -5,10 +5,11 @@ import { AppService } from './app.service';
 import { ReviewsModule } from './reviews/reviews.module';
 import { APP_FILTER } from '@nestjs/core';
 import { HttpExceptionFilter } from './filters/http-exception-filter';
+import { OffersModule } from './offers/offers.module';
 // import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [ReviewsModule],
+  imports: [ReviewsModule, OffersModule],
   controllers: [AppController],
   providers: [
     AppService,
