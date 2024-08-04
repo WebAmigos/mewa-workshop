@@ -3,19 +3,24 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button, Input } from '@ems/common-ui';
 
-import { createOfferSchema, CreateReviewDto } from './types';
+import { createOfferSchema, CreateOfferDto } from './types';
 
-export const CreateOffer = () => {
+type Props = {
+  createOffer: (data: CreateOfferDto) => void;
+};
+
+export const CreateOffer = ({ createOffer }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
-  } = useForm<CreateReviewDto>({
+  } = useForm<CreateOfferDto>({
     resolver: zodResolver(createOfferSchema),
   });
 
-  const submitHandler: SubmitHandler<CreateReviewDto> = async (data) => {
+  const submitHandler: SubmitHandler<CreateOfferDto> = async (data) => {
     console.log({ data });
+    createOffer(data);
   };
 
   return (
