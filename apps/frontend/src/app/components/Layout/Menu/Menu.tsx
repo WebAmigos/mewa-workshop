@@ -19,6 +19,9 @@ export const Menu = () => {
           <Link to={ROUTE.EMPLOYEES}>Employees</Link>
         </li>
         <li className="mx-2">
+          <Link to={ROUTE.OFFERS_CREATE}>Create offer</Link>
+        </li>
+        <li className="mx-2">
           <Link to={ROUTE.REGISTRATION}>Registration</Link>
         </li>
       </ul>
