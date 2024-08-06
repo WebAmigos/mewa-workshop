@@ -6,4 +6,4 @@ export const createOfferSchema = z.object({
   salary: z.number().positive(),
 });
 
-export type CreateReviewDto = z.infer<typeof createOfferSchema>;
+export type CreateOfferDto = z.infer<typeof createOfferSchema>;
