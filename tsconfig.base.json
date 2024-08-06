@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@ems/common-ui": ["libs/common-ui/src/index.ts"],
+      "@ems/contracts": ["libs/contracts/src/index.ts"],
       "@ems/prisma-client": ["libs/prisma-client/src/index.ts"],
       "@ems/prisma-schema": ["libs/prisma-schema/src/index.ts"]
     }
