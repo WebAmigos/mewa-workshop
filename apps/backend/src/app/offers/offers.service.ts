@@ -5,7 +5,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import { type Review } from '@prisma/client';
+import { type Offer } from '@prisma/client';
 
 import { CreateOfferDto } from './dtos/create-offer.dto';
 import { UpdateOfferDto } from './dtos/update-offer.dto';
@@ -15,30 +15,37 @@ import { PrismaService } from '../prisma.service';
 export class OffersService {
   constructor(private prisma: PrismaService) {}
 
-  async getOffers(page?: number, offset?: number): Promise<Review[]> {
-    return await this.prisma.review.findMany();
+  async getOffers(page?: number, offset?: number): Promise<Offer[]> {
+    return await this.prisma.offer.findMany();
   }
 
-  async getOffer(id: Review['id']): Promise<Review> {
+  async getOffer(id: Offer['public_id']): Promise<Offer> {
     // const review: Review = reviews.find((item) => item.id === id);
-    const review: Review = await this.prisma.review.findFirst({
-      where: { id },
+    const offer: Offer = await this.prisma.offer.findUnique({
+      where: {
+        public_id: id,
+      },
     });
-    if (!review) {
+    if (!offer) {
       // throw new Error('Review not found');
       // throw new HttpException('Review not found', HttpStatus.NOT_FOUND);
-      throw new NotFoundException('Review not found');
+      throw new NotFoundException('Offer not found');
     }
-    return review;
+    return offer;
   }
 
-  createOffer(createOfferDto: CreateOfferDto) {
+  async createOffer(createOfferDto: CreateOfferDto) {
     // TODO:
     // reviews.push(createReviewDto);
-    return createOfferDto;
+    return await this.prisma.offer.create({ data: createOfferDto });
   }
 
-  updateOffer(id: Review['id'], updateOfferDto: UpdateOfferDto) {
-    return updateOfferDto;
+  async updateOffer(id: Offer['public_id'], updateOfferDto: UpdateOfferDto) {
+    return await this.prisma.offer.update({
+      data: updateOfferDto,
+      where: {
+        public_id: id,
+      },
+    });
   }
 }

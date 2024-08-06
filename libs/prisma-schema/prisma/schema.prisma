@@ -14,3 +14,12 @@ model Review {
   author     String
   created_at DateTime @default(now())
 }
+
+model Offer {
+  id          Int      @id @default(autoincrement())
+  public_id   String   @unique @default(uuid())
+  role        String
+  description String
+  salary      Int
+  created_at  DateTime @default(now())
+}
