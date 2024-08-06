@@ -12,7 +12,7 @@ import { ApiGuard } from './app/guards/api-guard';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api'; // http://localhost:3000/api
+  const globalPrefix = 'api'; // http://localhost:3002/api
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

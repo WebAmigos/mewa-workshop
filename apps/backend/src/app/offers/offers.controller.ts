@@ -25,7 +25,7 @@ export class OffersController {
   }
 
   @Get(':id')
-  async getOffer(@Param('id') id: number) {
+  async getOffer(@Param('id') id: string) {
     return await this.offersService.getOffer(id);
   }
 
@@ -35,7 +35,7 @@ export class OffersController {
   }
 
   @Patch(':id')
-  updateOffer(@Param('id') id: number, @Body() updateOfferDto: UpdateOfferDto) {
+  updateOffer(@Param('id') id: string, @Body() updateOfferDto: UpdateOfferDto) {
     return this.offersService.updateOffer(id, updateOfferDto);
   }
 }
