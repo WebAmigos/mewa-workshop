@@ -5,6 +5,7 @@
 
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 import { AppModule } from './app/app.module';
 import { HttpExceptionFilter } from './app/filters/http-exception-filter';
@@ -22,8 +23,20 @@ async function bootstrap() {
   );
   app.setGlobalPrefix(globalPrefix);
   app.useGlobalFilters(new HttpExceptionFilter());
-  app.useGlobalGuards(new ApiGuard());
+  // app.useGlobalGuards(new ApiGuard());
   app.enableCors();
+
+  const config = new DocumentBuilder()
+    .setTitle('MEWA API')
+    .setDescription('Endpoints documentation for backend API')
+    .setVersion('1.0')
+    .addTag('offers')
+    .addTag('reviews')
+    .addTag('ai')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('swagger', app, document);
+
   const port = process.env.PORT || 3002;
   await app.listen(port);
   Logger.log(
