@@ -51,25 +51,24 @@ export class AIService {
     const runId = run.id;
 
     run = await this.openai.beta.threads.runs.retrieve(threadId, runId);
-
-    // queued, in_progress, cancelling (run.status)
+    // queued, in_progress, cancelling
     while (['queued', 'in_progress', 'cancelling'].includes(run.status)) {
       await new Promise((resolve) => setTimeout(resolve, 1000));
+
       run = await this.openai.beta.threads.runs.retrieve(threadId, runId);
-    }
+      if (run.status === 'completed') {
+        const outputMessage = await this.openai.beta.threads.messages.list(
+          threadId
+        );
 
-    if (run.status === 'completed') {
-      const outputMessages = await this.openai.beta.threads.messages.list(
-        threadId
-      );
-
-      return {
-        assistant,
-        thread,
-        messages,
-        run,
-        outputMessages,
-      };
+        return {
+          assistant,
+          thread,
+          messages,
+          run,
+          outputMessage,
+        };
+      }
     }
 
     return {
